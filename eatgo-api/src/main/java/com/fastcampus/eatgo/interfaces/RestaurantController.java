@@ -19,8 +19,8 @@ import java.util.List;
 public class RestaurantController {
 //    @Autowired //spring 이 알아서 객체 생성해줌.
 //    private RestaurantRepository restaurantRepository;
-    @Autowired //spring 이 알아서 객체 생성해줌.
-    private MenuItemRepository menuItemRepository;
+//    @Autowired //spring 이 알아서 객체 생성해줌.
+//    private MenuItemRepository menuItemRepository;
     @Autowired //spring 이 알아서 객체 생성해줌.
     private RestaurantService restaurantService;
     @GetMapping("/restaurants")
