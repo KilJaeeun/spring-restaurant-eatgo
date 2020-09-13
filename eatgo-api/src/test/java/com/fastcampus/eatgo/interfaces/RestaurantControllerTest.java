@@ -1,5 +1,6 @@
 package com.fastcampus.eatgo.interfaces;
 
+import com.fastcampus.eatgo.application.RestaurantService;
 import com.fastcampus.eatgo.domain.MenuItemRepository;
 import com.fastcampus.eatgo.domain.MenuItemRepositoryImpl;
 import com.fastcampus.eatgo.domain.RestaurantRepository;
@@ -30,8 +31,11 @@ public class RestaurantControllerTest {
     // 컨트롤러에 원하는 객체 주입
     @SpyBean(RestaurantRepositoryImpl.class)
     private RestaurantRepository restaurantRepository;
+    @SpyBean(RestaurantService.class)
+    private RestaurantService restaurantService;
     @SpyBean(MenuItemRepositoryImpl.class)
     private MenuItemRepository menuItemRepository;
+
     @Test
     public void list() throws Exception {
         mvc.perform(get("/restaurants")).andExpect(status().isOk()).andExpect(content().string(
@@ -43,6 +47,7 @@ public class RestaurantControllerTest {
                         "1004")));// 이 데이터에서 문자열 이것이 포함되어있는지 확인
 
     }
+
     @Test
     public void detail() throws Exception {
         mvc.perform(get("/restaurants/1004")).andExpect(status().isOk()).andExpect(content().string(
