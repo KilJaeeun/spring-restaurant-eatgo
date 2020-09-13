@@ -32,17 +32,10 @@ public class RestaurantController {
 
     @GetMapping("/restaurants/{id}")
     public Restaurant detail(@PathVariable("id") Long id) {
-        
         Restaurant restaurant = restaurantService.getRestaurant(id);
         //기본 정보 메뉴 정보
-                
-                
-                
-                
-                
   //      Restaurant restaurantService = restaurantRepository.findById(id);
-        List<MenuItem> menuItems = menuItemRepository.findAllByRestaurantId(id);
-        restaurant.setMenuItems(menuItems);
+
         return restaurant;
     }
 
